@@ -5,8 +5,10 @@ function blogs() {
   return (
     <>
       <div className={styles.blogComp}>
-        <div className={styles.blogHead}>
-          Blog
+        <div className={styles.welcome}>
+          <div className={styles.blogHead}>
+            Our Blog
+          </div>
         </div>
       </div>
     </>
