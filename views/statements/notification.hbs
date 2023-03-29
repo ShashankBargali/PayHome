@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../static/images/ph3.png" type="image/icon type">
+    <title>{{action}}-Notification</title>
+    <style>
+        @keyframes popUp {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            animation: popUp 1s linear 1;
+            height: fit-content;
+            width: 70vh;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            font-family: 'Ubuntu';
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .btn {
+            font-family: 'Fira Code';
+            padding: .5rem;
+            background-color: #0d6efd;
+            color: white;
+            border: 2px solid #0d6efd;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .div {
+            margin: 20px 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="div">
+            <img src="{{image}}" alt="">
+        </div>
+        <div class="div">
+            {{msg}}
+        </div>
+        <div class="div">
+            <button onclick="backHome()" class="btn">Back</button>
+        </div>
+        <script src="/static/css/script.js"></script>
+    </div>
+</body>
+
+</html>

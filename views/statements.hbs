@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayHome - Welcome to user interface</title>
+    <link rel="shortcut icon" type="image" href="../static/images/ph3.png">
+    <link rel="stylesheet" href="/static/css2/bootstrap.min.css">
+    <link rel="icon" href="/static/images/ph3.png" type="image/icon type">
+    <link rel="stylesheet" href="/static/css/account.css">
+    <script src="/js2/bootstrap.js"></script>
+</head>
+<style>
+    .bal {
+        top: 0;
+    }
+
+    .st-btn {
+        border-left: 3px solid blue;
+        border-right: 3px solid blue;
+        display: flex;
+        text-decoration: none;
+        justify-content: space-between;
+        height: 40px;
+    }
+</style>
+
+<body style="overflow:hidden;height: 100vh;">
+    <div class="nav1" id="nav" style="margin-right: 0px;font-family: 'Bahnschrift';">
+        <div class="nav-items text-uppercase p-3 unactive ">
+            <a href="/log/account">
+                <img src="/static/images/icons8-account-30.png" alt=""> <br> {{account}}
+            </a>
+        </div>
+        <div class="nav-items text-uppercase p-3 active" onclick="add()" id="Statements">
+            <a>
+                <img src="/static/images/icons8-purchase-order-50.png" alt=""> <br>
+                Statements
+            </a>
+        </div>
+        <div class="nav-items text-uppercase p-3 unactive" id="Cards">
+            <a href="/log/account/cards">
+                <img src="/static/images/icons8-credit-card-30.png" alt=""> <br>My Card
+            </a>
+        </div>
+        <div class="nav-items p-3 unactive" id="a">
+            <a href="/log/account/settings">
+                <img src="/static/images/icons8-setting-64.png" alt=""> <br>Settings
+        </div>
+        </a>
+    </div>
+    <div class="bg-dark" id="main" style="width: 60vh;">
+        <div class="row m-4">
+            <div class="col-2 burger" id="burger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="col mt-2 font-monospace text-center text-primary text-uppercase" style="font-size: 1.3rem;">
+                PayHome
+            </div>
+            <a class="col-3 btn border-2 border-primary" onclick="msg()">Log Out</a>
+        </div>
+
+        <div class="bal text-white">
+            <div class="row">
+                <div class="col"></div>
+                <h3 class="bg-primary font-monospace text-center col-6 mt-2 icon">
+                    <img src="/static/images/icons8-cash-withdrawal-64.png" style="filter: invert(100%);" alt="">
+                </h3>
+                <div class="col"></div>
+            </div>
+            <div class="row">
+                <div class="col"></div>
+                <h3 class="font-monospace text-center col-6" style="width: auto;">Total balance </h3>
+                <div class="col"></div>
+            </div>
+            <div class="row">
+                <div class="col"></div>
+                <h3 class="font-monospace text-center col-6">{{bal}}</h3>
+                <div class="col"></div>
+            </div>
+        </div>
+
+
+        <a href="statements/addbal" class="row text-primary font-monospace mt-4 addbal">
+            <div class="col"></div>
+            <div class="col-8 border-primary border-3 border-start border-end p-2 bg-white">
+                <div class="row">
+                    <div class="col-5">Add Balance</div>
+                    <div class="col-5"></div>
+                    <div class="col">+</div>
+                </div>
+            </div>
+            <div class="col"></div>
+
+            <div class="row">
+
+            </div>
+        </a>
+
+        <div class="row text-primary font-monospace mt-5 addbal">
+            <div class="col"></div>
+            <div class="col-8">
+                <div class="row">
+                    <a href="statements/withdraw" class="col-5 st-btn bg-gradient p-2" style="">
+                        <p>Withdraw</p> <span>&#8595;</span>	
+                    </a>
+                    <div class="col"></div>
+                    <a href="statements/transfer" class="col-5 st-btn bg-gradient p-2">
+                        <p>Transfer</p>  <span>&#8594;</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+
+
+
+    <div id="Add" class="row">
+        <div class="col text-primary bg-white"
+            style="height: 300px;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+            <div class="row ">
+                <div class="col-11"></div>
+                <div class="col-1 close" id="close">x</div>
+            </div>
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-10 font-monospace adding">
+                    Add Balance
+                    <div>
+                        <input type="number" class="p-2 mt-2 addbaltext" name="amount" id="amount" min="0"
+                            placeholder="Enter the amount">
+                        <input type="password" class="p-2 mt-2 addbaltext" placeholder="Enter the code of deposite"
+                            name="code" id="code" maxlength="4" pattern="[0-9]{4}">
+                        <button class="btn border-1 border-primary mt-4" onclick="getInfo()">Submit</button>
+                    </div>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row alert">
+        <div id="message" class=" bg-light col p-4" style="display: none;">
+            Are you sure you want to log out
+            <div class="row" style="display: flex;justify-content: space-between;">
+                <a href="/" class="btn border-2 border-primary col" style="width: 20px;">Log out</a>
+                <a class="btn border-2 border-primary col" style="width: 20px;" onclick="func3()">Stay here</a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/css/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+extends logo.pug
+block style 
+    style 
+        include ../static/css/Login.css
+    title PayHome - User LogIn
+block content 
+    .form 
+        .creating 
+            a(href="/") Home 
+            h1 LogIn to your Bank account 
+        form(action="/log", method="post", class="creating", autocomplete="off") 
+            .acno 
+                label(for="acno") Account no. : <br>
+                input(type="text", name="acno" id="acno" placeholder="Enter your account no." maxlength="6" pattern="[0-9]{6}" required )
+            .psd 
+                label(for="psd") Password : <br>
+                input(type="password", name="psd" id="psd" placeholder="Enter your password" required) 
+            button(class='register') LogIn to Account
+        .creating 
+            | Don't have an account created?  
+            a(href="/Create") Create Account
+    |Dont know what are the format for each 
+    a(href="/instruct") Click here 

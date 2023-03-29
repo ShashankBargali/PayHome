@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayHome - Welcome to user interface</title>
+    <link rel="stylesheet" href="../static/css2/bootstrap.min.css">
+    <link rel="icon" href="../static/images/ph3.png" type="image/icon type">
+    <link rel="stylesheet" href="../static/css/account.css">
+    <script src="/js2/bootstrap.js"></script>
+</head>
+
+<body style="overflow:hidden;height: 100vh;">
+
+    <!-- {{!-- This is the main nav bar --}} -->
+
+    <div class="nav1" id="nav" style="margin-right: 0px;font-family: 'Bahnschrift';">
+        <div class="nav-items text-uppercase p-3 active ">
+            <a>
+                <img src="../static/images/icons8-account-30.png" alt=""> <br> {{account}}
+            </a>
+        </div>
+        <div class="nav-items text-uppercase p-3 unactive" id="Statements">
+            <a href="account/statements">
+                <img src="../static/images/icons8-purchase-order-50.png" alt=""> <br>
+                Statements
+            </a>
+        </div>
+        <div class="nav-items text-uppercase p-3 unactive" id="Cards">
+            <a href="account/cards">
+                <img src="../static/images/icons8-credit-card-30.png" alt=""> <br>My Card
+            </a>
+        </div>
+        <div class="nav-items p-3 unactive" id="a">
+            <a href="account/settings">
+                <img src="../static/images/icons8-setting-64.png" alt=""> <br>Settings
+        </div>
+        </a>
+    </div>
+
+    <!-- {{!-- Now heads to the main part --}} -->
+
+    <div class="bg-dark" id="main" style="width: 60vh;">
+
+        {{!-- Here is the starting with burger : another navbar --}}
+
+        <div class="row m-4">
+            <div class="col-2 burger" id="burger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="col mt-2 font-monospace text-center text-primary text-uppercase" style="font-size: 1.3rem;">
+                PayHome
+            </div>
+            <a class="col-3 btn border-2 border-primary" id="logout" onclick="msg()">Log Out</a>
+        </div>
+
+        <!-- {{!-- This is the welcome card of the black background --}} -->
+
+        <div class="welcome bg-primary text-white m-5 p-3 pb-5">
+            <div class="row">
+                <div class="col"></div>
+                <p class=" font-monospace text-center col-6" style="width: auto;">Welcome {{name}}</p>
+                <div class="col"></div>
+                <p class="font-monospace text-center"> - PayHome Digital Bank</p>
+            </div>
+        </div>
+
+        <!-- {{!-- The balance card --}} -->
+
+        <div class="bal text-white">
+            <div class="row">
+                <div class="col"></div>
+                <h3 class="bg-primary font-monospace text-center col-6 mt-2 icon"> <img
+                        src="../static/images/icons8-cash-withdrawal-64.png" style="filter: invert(100%);" alt=""></h3>
+                <div class="col"></div>
+            </div>
+            <div class="row">
+                <div class="col"></div>
+                <h3 class="font-monospace text-center col-6" style="width: auto;">Total balance </h3>
+                <div class="col"></div>
+            </div>
+            <div class="row">
+                <div class="col"></div>
+                <h3 class="font-monospace text-center col-6">{{bal}}</h3>
+                <div class="col"></div>
+            </div>
+        </div>
+
+        <!-- {{!-- This is the alert when user clicks on the logout page --}} -->
+
+        <div class="row text-primary font-monospace" id="addbal">
+            <div class="col"></div>
+            <div class="col-8 border-primary border-3 border-start border-end p-2 bg-white">
+                <div class="row">
+                    <div class="col-5">Add Balance</div>
+                    <div class="col-5"></div>
+                    <div class="col">+</div>
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+
+        <!-- {{!-- If balance will be 0 then this will be displayed on the screen --}} -->
+
+        <div class="row" id="warning">
+            <div class="col"></div>
+            <div class="bg-warning col-10 p-3" style="border-radius: 10px;">
+                Warning! : <br> you don't have a single balance in your account
+                <a href="/log/account/statements">Add Balance now</a>
+            </div>
+            <div class="col"></div>
+        </div>
+
+    </div>
+
+    <div id="Add" class="row">
+        <div class="col text-primary bg-white"
+            style="height: 300px;">
+            <div class="row ">
+                <div class="col-10"></div>
+                <div class="col-2 close" id="close"><img src="/static/images/icon-close.svg" alt=""></div>
+            </div>
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-10 font-monospace adding">
+                    Add Balance
+                    <form action="/log/account/statements/addbal" method="post">
+                        <input type="number" class="p-2 mt-2 addbaltext" name="amount" id="amount" min="0" placeholder="Enter the amount" required>                
+                        
+                        <input type="password" name="pin" id="" class="p-2 mt-2 addbaltext" placeholder="Enter the pin" maxlength="4" pattern="[0-9]{4}" required>
+                        <button class="btn border-1 border-primary mt-4">Submit</button>
+                    </form>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row alert">
+        <div id="message" class=" bg-light col p-4" style="display: none;">
+            Are you sure you want to log out
+            <div class="row" style="display: flex;justify-content: space-between;">
+                <a href="/" class="btn border-2 border-primary col" style="width: 20px;">Log out</a>
+                <a class="btn border-2 border-primary col" style="width: 20px;" onclick="func3()">Stay here</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- {{!-- This is add balance div --}} -->
+
+
+    <script>
+        if ({{ bal }} == 0) {
+            warning.style.display = 'flex';
+            addbal.style.display = 'none';
+        }
+        else {
+            warning.style.display = 'none';
+            addbal.style.display = 'flex';
+        }
+    </script>
+    <script src="../static/css/script.js"></script>
+</body>
+
+</html>

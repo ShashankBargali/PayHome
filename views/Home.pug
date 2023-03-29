@@ -1,0 +1,45 @@
+doctype html
+
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='style.css')
+  <link rel="shortcut icon" type="image" href="../static/images/ph3.png">
+  style 
+    include ../static/css/PayHome.css
+
+  title PayHome - Digital Banking System
+
+body 
+  nav.nav-bar
+    <div class="logo">
+    <div class="pay">
+    | Pay
+    </div>   
+    <div class="home">
+    |  Home
+    </div>
+    </div>
+    .nav-items
+      a(class='home' style='color:black;text-decoration:underline;cursor:pointer;') Home
+      a(href='/Create' class='create home') Create an Account
+      a(href='#' class='modify home') Modify Account
+    a(href='/LogIn') Log In 
+
+  header.hero-section
+    .hero-text-container
+      h1
+        | Next generation
+        br
+        |           digital banking
+      p
+        | Take your financial life online. Your PayHome bank account
+        br
+        |           will be a one-stop-shop for spending,saving,
+        br
+        | budgeting,investing,
+        |           and much more.
+    .hero-img-container
+      img(src='../static/images/image-mobile.png' alt='')
+

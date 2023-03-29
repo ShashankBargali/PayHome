@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto Slab';
+    align-items: center;
+    height: 98vh;
+}
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: aliceblue;
+    width: 40%;
+    padding: 40px;
+    border-radius: 20px;
+    font-family: 'Roboto Slab';
+}
+a{
+    position: relative;
+    top: 0;
+    left: 0%;
+}
+.creating {
+    width: 100%;
+    margin: 10px;
+}
+.creating > h1{
+    border: 3px solid white;
+    padding: 10px;
+}
+#psd{
+    width: 80%;
+    padding: 15px;
+    font-size: 17px;
+}
+#acno{
+    width: 80%;
+    padding: 15px;
+    font-size: 17px;
+}
+input{
+    margin: 10px 0px;
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+}
+input:focus{
+    background-color: rgb(212, 232, 250);
+}
+.register{
+    padding: 12px 28px;
+    border: none;
+    outline-width: 0;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 400;
+    background-image: linear-gradient(
+      120deg,
+      hsl(192, 70%, 51%),
+      hsl(136, 65%, 51%)
+    );
+    font-family: 'Ubuntu';   
+    opacity: 10;
+}
+.register:hover{
+    background-image: linear-gradient(
+      120deg,
+      hsl(192, 100%, 39%),
+      hsl(136, 100%, 30%)
+    );
+}

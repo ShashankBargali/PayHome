@@ -1,0 +1,30 @@
+
+head
+    <link rel="shortcut icon" type="image" href="../static/images/ph3.png">
+    title PayHome - Login
+    style 
+        include ../static/css/Loader.css
+    script 
+        include ../js/loader.js
+//- script(src="../js/loader.js") 
+<body onload="myFunction()">
+<div id="loader" class="loader">
+<div class="inloader">
+<div class="innerloader">
+<div class="fullin">
+</div>
+</div>
+</div>
+</div>
+block nextcontent
+    <h1 style="display:flex;justify-content:center;align-items:center;font-family:'Ubuntu';" id="check"> Please wait checking details </h1>
+        
+    <div style="display:none;" id="myDiv" class="animate-bottom">
+        <p style="margin:10px 0 0 0;font-family:'Ubuntu';"> #{msg} <br>
+            <a href=#{tag}>#{anchor}</a> <br>
+            <a href=#{tag2}>#{anchor2}</a>
+        </p>
+    </div> 
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+extends logo.pug
+block style 
+    style  
+        include ../static/css/Create.css
+    title PayHome - Create account 
+block script 
+    script
+        include ../js/create.js
+block content
+    .form 
+        .creating 
+            a(href="/") Home 
+            h1 Create an online bank Account
+        <form autocomplete="off" action="/register" method="post" class="creating">
+            .name 
+                label(for="name") Name : <br>
+                input(type="text", name="name" id="name" placeholder="Enter your name" required) 
+            .single-line 
+                .age 
+                    label(for="age") Age : <br>
+                    input(type="number", name="age" id="age" placeholder="Enter your age" min="1" require)
+                .acno 
+                    label(for="acno") Account no. : <br>
+                    input(type="text", name="acno" id="acno" placeholder="Enter a unique account no." maxlength="6" pattern="[0-9]{6}" required )
+            .psd 
+                label(for="psd") Password : <br>
+                input(type="password", name="psd" id="psd" placeholder="Create your own password" required) 
+                </br>
+                input(type="checkbox" id="checkbox" onclick="myfunc()")  
+                .checkbox(style="display:inline-block;padding:5px;")
+                    label(for="checkbox") Show password
+
+            .pin  
+                label(for="pin") Pin : <br>
+                input(type="password", name="pin" id="pin" placeholder="Also enter a unique pin" maxlength="4" pattern="[0-9]{4}" required) 
+                </br>
+                input(type="checkbox" id="showpin" onclick="myfunc2()")  
+                .checkbox(style="display:inline-block;padding:5px;")
+                    label(for="showpin") Show pin 
+            button(class='register') Create an Account
+        </form>
+        .creating 
+            | Already have an account?  
+            a(href="/LogIn") LogIn
+    |Dont know what are the format for each 
+    a(href="/instruct") Click here 

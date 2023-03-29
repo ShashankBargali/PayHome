@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../static/images/ph3.png" type="image/icon type">
+    <title>Transfer money</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            height: fit-content;
+            width: 70vh;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            font-family: 'Ubuntu';
+            text-align: center;
+            padding: 30px;
+        }
+
+        input {
+            font-family: 'Fira Code';
+            margin: 10px 0px;
+            font-size: 1rem;
+            width: 70%;
+            padding: 4px 10px;
+            border: none;
+            outline: none;
+            border-bottom: 2px solid #0d6efd;
+        }
+
+        .btn {
+            font-family: 'Fira Code';
+            padding: .5rem;
+            background-color: #0d6efd;
+            color: white;
+            border: 2px solid #0d6efd;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div style="text-align: left;cursor: pointer;text-decoration: underline;color: blue;">
+            <a onclick="history.back()">Back</a>
+        </div>
+        <h1>Transfer Money</h1>
+        <form action="" method="post">
+            <div class="name">
+                <input type="text" name="name" id="name", placeholder="Enter the name of the account" required>
+            </div>
+            <div class="amount">
+                <input type="number" name="amount" id="amount" min="0" max="{{bal}}" placeholder="Enter the amount" required>                
+            </div>
+            <div class="code">
+                <input type="password" name="pin" id="" placeholder="Enter the pin" maxlength="4" pattern="[0-9]{4}" required>
+            </div>
+            <button class="btn">Withdraw Now</button>
+        </form>
+    </div>
+</body>
+
+</html>
