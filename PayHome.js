@@ -6,6 +6,7 @@ const app = express();
 const path = require('path');
 const boydparser = require('body-parser');
 const debits = require("./js/debits");
+const port = process.env.port || 80
 let aname = null, aage = null, aacno = null, apass = null, apin = null, abal = Number, adigi = null;
 const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,/<>!@#$%^&*()_-+={[]}\\|`~';
 // const DB = 'mongodb+srv://Banking_Family:ZkSAk2COjQ7t2v6D@cluster0.rkqye.mongodb.net/Digital_Banking?retryWrites=true&w=majority'
@@ -272,6 +273,6 @@ app.post('/log/account/cards/get', (req,res)=>{
 })
 
 
-app.listen(80, () => {
-    console.log("Server started")
+app.listen(port, () => {
+    console.log("Server started at port : ", port)
 })
